@@ -1,9 +1,10 @@
 import React,{ Component } from 'react';
+import CreatePost from '../CreatePost/CreatePost'
 
 class FindItem extends Component{
     render(){
         return(
-            <h1>Find</h1>
+            <CreatePost />
         )
     }
 }

@@ -1,9 +1,10 @@
 import React,{ Component } from 'react';
+import LostIndex from '../LostIndex/LostIndex'
 
 class LostItem extends Component{
     render(){
         return(
-            <h1>Lost Item Page</h1>
+            <LostIndex />
         )
     }
 }

@@ -1,36 +1,80 @@
 import React,{ Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FindItem from '../src/components/Find/FindItem'
-import LostItem from '../src/components/Lost/LostItem';
+import FindItem from './components/FindItem/FindItem'
+import LostItem from './components/LostItem/LostItem';
+import SignupPage from './components/SignupPage/SignupPage'
+import LoginPage from './components/LoginPage/LoginPage'
+import NavBar from './components/NavBar/NavBar'
 import { Route, Switch, Link } from 'react-router-dom';
+import userService from './utils/userService';
+
+
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      user: userService.getUser()
+    }
+  }
+
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+  handleSignupOrLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
+
+
+  handleSignupOrLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
+    
+        <nav className="nav">
+          <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
+        </nav>
         
-        <h1>Find & Lost</h1>
-        <Link to={'/lost'}>Lost</Link>
-        <br />
-        <Link to={'/find'}>Find</Link>
+        {this.state.user ? 
+        <>
+          <h1 className="h1-app">HI {this.state.user.name}</h1>
+          <Link className='link-app' to={'/find'}>Find</Link>||
+          <Link className='link-app' to={'/lost'}>Lost</Link>
+        </>  
+        :
+        <>
+          <h1>Find & Lost</h1>
+          <p>Please Login or SignUp</p>
+        </>  
+        }
+        <p className="p-app">
+        This web-site help you to find your item...
+        <br/>
+        If you find any items click find...
+        <br/>
+        If you lost any items any try to find it click Lost...
+        </p>
+       
+
         <Switch>
         <Route exact path='/lost' component={ LostItem } />
         <Route exact path='/find' component={ FindItem } />
+        <Route exact path='/signup' render={({ history }) => 
+            <SignupPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          }/>
+          <Route exact path='/login' render={({ history }) => 
+            <LoginPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          }/>
         </Switch>
       </div>
     );

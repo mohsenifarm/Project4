@@ -1,0 +1,19 @@
+.NavBar {
+    display: flex;
+
+    margin: 0 0 20px;
+  }
+  
+  .NavBar-link {
+    margin: 0 10px;
+  }
+  
+  .NavBar-welcome {
+    color: grey;
+  }
+  .div-nav{
+    float: right;
+    justify-content: right;
+    align-items: flex-end;
+
+  }

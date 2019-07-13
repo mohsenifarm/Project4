@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const PhotosSchema = new Schema({
     photo: String
-})
+});
 
 const PostSchema = new Schema ({
     title: String,
