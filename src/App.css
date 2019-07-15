@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-around;
 }
-body {
+/* body {
   background-image: url('https://img.jakpost.net/c/2017/10/13/2017_10_13_34011_1507881895._large.jpg');
   background-size: 200vh 100vh
 }
@@ -48,4 +48,4 @@ body {
 }
 .p-app{
   color: whitesmoke;
-}
+} */

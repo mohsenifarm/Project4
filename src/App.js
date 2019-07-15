@@ -1,13 +1,15 @@
 import React,{ Component } from 'react';
 import './App.css';
-import FindItem from './components/FindItem/FindItem'
+import FindItem from './components/FindItem/FindItem';
 import LostItem from './components/LostItem/LostItem';
-import SignupPage from './components/SignupPage/SignupPage'
-import LoginPage from './components/LoginPage/LoginPage'
-import NavBar from './components/NavBar/NavBar'
+import ShowPost from '../src/components/ShowPost/ShowPost'
+
+import SignupPage from './components/SignupPage/SignupPage';
+import LoginPage from './components/LoginPage/LoginPage';
+import NavBar from './components/NavBar/NavBar';
+import EditPost from './components/EditPost/EditPost';
 import { Route, Switch, Link } from 'react-router-dom';
 import userService from './utils/userService';
-
 
 
 class App extends Component {
@@ -17,7 +19,6 @@ class App extends Component {
       user: userService.getUser()
     }
   }
-
 
   handleLogout = () => {
     userService.logout();
@@ -31,6 +32,7 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
+ 
   render() {
     return (
       <div className="App">
@@ -75,6 +77,19 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+          <Route exact
+                path='/posts/:id' 
+                render={props => <ShowPost {...props} />}
+             />
+          {/* <Route exact
+          path='/posts/:id/delete'
+          render={props => }
+          /> */}
+           <Route
+            exact
+            path="/posts/:id/edit"
+            render={props => <EditPost {...props} />}
+          />
         </Switch>
       </div>
     );
