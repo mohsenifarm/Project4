@@ -39,17 +39,15 @@ export function deletePost(id){
   });
 }
 
-
-export function editPost(post){
-  return fetch(`/api/posts/${post.id}`,{
-    method:'PUT',
+export function editPost(post) {
+  return fetch(`/api/posts/${post.id}/edit`, {
+    method: 'PUT',
     body: JSON.stringify({
-      title:post.title,
-      content:post.content
+      title: post.title,
+      content: post.content
     }),
     headers: {
       'content-type': 'application/json'
     }
   })
-
 }

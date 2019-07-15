@@ -38,7 +38,9 @@ function deletePost(req,res){
     })
 }
 function editPost(req,res){
-    Post.findByIdAndUpdate(req.params.id, req.body).then(function(post){
+    console.log("In edit post function")
+    console.log(req.body)
+    Post.findByIdAndUpdate(req.params.id, req.body, {new: true}).then(function(post){
         res.status(200).json(post)
     })
 }
