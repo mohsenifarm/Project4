@@ -30,7 +30,7 @@ class LostIndex extends Component{
                          <li key={idx} className={`li-index-items`}> 
                            <Link className={`link-indexlost`} to={`/posts/${post._id}`}>{post.title}</Link>
                          </li> 
-                    )}
+                    ).reverse()}
            
                  </ul>
             

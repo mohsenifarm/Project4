@@ -9,8 +9,11 @@
   border: 1px solid rgb(79, 79, 167);;
   box-sizing: border-box;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: rgb(224, 243, 249);
+  text-align: left;
+  font-size: 12px;
+  margin-top: 1%;
 }
 
 

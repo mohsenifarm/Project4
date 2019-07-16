@@ -22,3 +22,19 @@ ul {
     font-size: 14px;
     font-weight: bold;
 }
+.span{
+    font-weight: bold;
+    font-size: 14px;
+}
+.divshow-post{
+    text-align: left;
+
+}
+.p-showpost{
+    text-align: left;
+    font-size: 14px;
+}
+.p2-showpost{
+    text-align: left;
+    font-size: 9px;
+}

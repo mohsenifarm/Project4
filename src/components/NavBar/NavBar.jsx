@@ -5,7 +5,7 @@ import './NavBar.css';
 const NavBar = (props) => {
   let nav = props.user ?
   <nav className={`nav-naz`} class="navbar navbar-expand-lg navbar-light bg-light">
-    <Link to={'/'} className={'nav-logo'} clkss="navbar-brand" href="#">Find And Lost</Link>
+    <Link to={'/'} className={'nav-logo'} clkss="navbar-brand" href="#">Found And Lost</Link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>

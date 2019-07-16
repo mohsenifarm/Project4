@@ -23,7 +23,10 @@ function createPost (req,res) {
     })
 }
 function showPost (req,res) {
-    Post.findById(req.params.id).then(function(post){
+    Post.findById(req.params.id)
+    .populate('userId')
+    .populate('comments.userId')
+    .then(function(post){
         console.log("Show Post");
         res.status(200).json(post)
     })
@@ -48,10 +51,13 @@ function editPost(req,res){
 }
 
 function addComment(req, res){
-    Post.findById(req.params.id).then(function(post){
+    Post.findById(req.params.id)
+    // .populate('userId')
+    .then(function(post){
         post.comments.push(req.body);
-        console.log('==========',req.body)
         post.save(function(comment){
+            // console.log('post=>',post);
+            // console.log('comment=>',comment)
             res.status(200).json(comment);
         });
     })

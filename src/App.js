@@ -43,8 +43,8 @@ class App extends Component {
         
         {this.state.user ? 
         <>
-          <h1 className="h1-app"><em>Hello:</em>&nbsp; <span className={`span-app`}>{this.state.user.name}</span></h1>
-          <Link className='link-app' to={'/find'}><i class="fas fa-paperclip"></i>Find</Link>
+          <h1 className="h1-app"><em>Current user: {this.state.user.name}</em></h1>
+          <Link className='link-app' to={'/find'}><i class="fas fa-paperclip"></i>Found</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-question-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link className='link-app' to={'/lost'}>Lost<i class="fas fa-search"></i></Link>
         </>  
@@ -94,6 +94,7 @@ class App extends Component {
             render={props => <EditPost {...props} />}
           />
         </Switch>
+        
       </div>
     );
   }

@@ -11,7 +11,8 @@ export function createPost(post){
           title: post.title,
           content: post.content,
           zipcode: post.zipcode,
-          userId: post.userId
+          userId: post.userId,
+          userName: post.userId.name
         }),
         headers: {
           'content-type': 'application/json'
@@ -27,13 +28,6 @@ export function showPost(id){
 
 export function deletePost(id){
   console.log('handle delete is calling in service function')
-  // return fetch(`/api/posts/deletePost/${id}`, {
-  //   method:'POST',
-  //   body: JSON.stringify({
-  //     id: "Meisam"
-  //   }),
-  //   headers: {'content-type': 'application/json'}
-  // })
   return fetch(`/api/posts/deletePost/${id}`, {
     method: 'delete'
   }).then(function(res) {
@@ -59,7 +53,8 @@ export function addComment(id,comment){
   return fetch(`/api/posts/${id}/comments`,{
     method: 'POST',
     body: JSON.stringify({
-      body: comment
+      body: comment.body,
+      userId: comment.userId
     }),
     headers: {
       'content-type': 'application/json'
