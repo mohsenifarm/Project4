@@ -1,8 +1,8 @@
 .div-show{
-    border: 3.3px inset gray;
+    border: 3.3px inset rgb(79, 79, 167);;
     border-radius: 10px;
     padding: 10px;
-    background-color: rgb(192,192,192)
+    background-color: rgb(224, 243, 249);
 }
 .edit-btn {
     margin-right: 20px;
@@ -17,4 +17,8 @@ ul {
 }
 .h2-showpage{
     border: 2px solid gray;
+}
+.span-li{
+    font-size: 14px;
+    font-weight: bold;
 }

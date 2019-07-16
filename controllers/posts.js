@@ -17,6 +17,7 @@ function getAllPosts (req,res){
 };
 
 function createPost (req,res) {
+    console.log(req.body)
     Post.create(req.body).then(function(post){
         res.status(201).json(post)
     })

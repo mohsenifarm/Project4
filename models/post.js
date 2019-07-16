@@ -8,6 +8,10 @@ const PostSchema = new Schema({
   title: String,
   content: String,
   zipcode: Number,
-  comments: [CommentSchema]
+  comments: [CommentSchema],
+  userId: {
+    type: Schema.Types.ObjectId,
+     ref: 'User'
+    }
 });
 module.exports = mongoose.model("Post", PostSchema);

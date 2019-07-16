@@ -8,7 +8,7 @@ import SignupPage from './components/SignupPage/SignupPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import NavBar from './components/NavBar/NavBar';
 import EditPost from './components/EditPost/EditPost';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import userService from './utils/userService';
 
 
@@ -65,7 +65,13 @@ class App extends Component {
 
         <Switch>
         <Route exact path='/lost' component={ LostItem } />
-        <Route exact path='/find' component={ FindItem } />
+        <Route exact path='/find' render={ () =>  
+          userService.getUser() ?
+            <FindItem />
+            :  
+            <Redirect to='/login'/>
+        } />
+
         <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
@@ -82,10 +88,6 @@ class App extends Component {
                 path='/posts/:id' 
                 render={props => <ShowPost {...props} />}
              />
-          {/* <Route exact
-          path='/posts/:id/delete'
-          render={props => }
-          /> */}
            <Route
             exact
             path="/posts/:id/edit"

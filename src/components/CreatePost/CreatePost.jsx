@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { createPost } from '../../services/api';
+import userService from '../../utils/userService'
 import './CreatePost.css'
 
 class CreatePost extends Component{
     constructor(){
         super();
         this.state = {
+            userId: userService.getUser()._id,
             title: '',
             content: '',
             zipcode: 0
@@ -30,7 +32,7 @@ class CreatePost extends Component{
 
     render(){
         return(
-            <div>
+            <div className={'div-create'}>
                 <h2>ADD ITEM</h2>
                 <hr/>
                 <form onSubmit={this.handleSubmit}>

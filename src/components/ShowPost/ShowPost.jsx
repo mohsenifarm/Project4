@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { showPost,deletePost, addComment } from '../../services/api';
+import userService from '../../utils/userService';
 import './ShowPost.css'
 
 class ShowPost extends Component {
@@ -11,7 +12,9 @@ class ShowPost extends Component {
           content: '',
           zipcode:'',
           comments: [],
-          commentBody: ''
+          commentBody: '',
+          userId: '',
+          user: userService.getUser()
         }
       }
     
@@ -25,7 +28,8 @@ class ShowPost extends Component {
             title: post.title,
             content: post.content,
             zipcode: post.zipcode,
-            comments: post.comments
+            comments: post.comments,
+            userId: post.userId
           });
         })
       }
@@ -45,7 +49,8 @@ class ShowPost extends Component {
               content: post.content,
               comments: post.comments,
               zipcode: post.zipcode,
-              commentBody: ''
+              commentBody: '',
+              userId: post.userId
             });
           })
         })
@@ -58,9 +63,14 @@ class ShowPost extends Component {
       }
     
       render() {
+        console.log(this.state.user._id, this.state.userId);
         var comments = this.state.comments.map((comment, idx) => {
           return (
             <li key={idx}>
+              <span className={'span-li'}><em>{this.state.user.name}:</em></span>
+              <span>&nbsp;&nbsp;</span>
+
+              
               {comment.body}
             </li>
           )
@@ -73,8 +83,16 @@ class ShowPost extends Component {
             <h4>{this.state.title}</h4>
             <p>{this.state.content}</p>
             <p>{this.state.zipcode}</p>
-            <a href="#" className="btn btn-danger first-a" onClick={() => this.handleDelete(this.state.id)}><i class="far fa-trash-alt"></i>&nbsp;Delete Post</a>
-            <a href={`/posts/${this.state.id}/edit`} className="btn btn-info"><i class="far fa-edit"></i>&nbsp;Edit Post</a>
+
+            { this.state.userId == this.state.user._id ?
+              <>
+                <a href="#" className="btn btn-danger first-a" onClick={() => this.handleDelete(this.state.id)}><i class="far fa-trash-alt"></i>&nbsp;Delete Post</a>
+                <a href={`/posts/${this.state.id}/edit`} className="btn btn-info"><i class="far fa-edit"></i>&nbsp;Edit Post</a>
+              </>  
+            :
+            null
+            }
+            
             <hr/>
             <br/>
             <ul>
@@ -87,7 +105,6 @@ class ShowPost extends Component {
             <form onSubmit={this.handleSubmit}>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='Comment...' onChange={this.handleCommentBody} value={this.state.commentBody} required={true}></textarea>
               <br/>
-              {/* <input type='submit' value='Add Comment' className='btn btn-success' /> */}
               <button className='btn btn-success'><i class="fas fa-plus"></i>Add Comment</button>
             </form>
           </div>

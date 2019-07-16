@@ -10,7 +10,8 @@ export function createPost(post){
         body: JSON.stringify({
           title: post.title,
           content: post.content,
-          zipcode: post.zipcode
+          zipcode: post.zipcode,
+          userId: post.userId
         }),
         headers: {
           'content-type': 'application/json'
