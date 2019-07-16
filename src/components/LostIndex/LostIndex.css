@@ -16,3 +16,27 @@
 .span-lost {
     color:red;
 }
+.ul-index-items{
+    list-style-type: none;
+    
+
+}
+.li-index-items{
+    border: 3.4px outset gray;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+.link-indexlost{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+.link-indexlost:hover{
+    font-size: 30px;
+    color: hotpink;
+    text-decoration: blink;
+}
+

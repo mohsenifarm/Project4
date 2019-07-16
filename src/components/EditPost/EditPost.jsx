@@ -6,7 +6,8 @@ class EditPost extends Component{
     state={
         id:'',
         title:'',
-        content:''
+        content:'',
+        zipcode:''
     }
 
     componentDidMount() {
@@ -33,6 +34,9 @@ class EditPost extends Component{
     handlecontent = (e) => {
         this.setState({ content: e.target.value })
     }
+    handleZip = (e) => {
+        this.setState({zipcode: e.target.value})
+    }
 
     render(){
         return(
@@ -42,14 +46,17 @@ class EditPost extends Component{
           <form onSubmit={this.handleSubmit}>
             <label>Post Title : </label>
             <br/>
-            <input onChange={this.handleTitle} value={this.state.title} />
+            <input class="form-control" onChange={this.handleTitle} value={this.state.title} />
             <br/>
 
             <label>Post content : </label>
             <br/>
-            <textarea onChange={this.handlecontent} value={this.state.content}></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handlecontent} value={this.state.content}></textarea>
             <br/>
-
+            <br/>
+            <input class="form-control" onChange={this.handleZip} value={this.state.zipcode} />
+            <br/>
+            
             <input type="submit" className="btn btn-primary" value="Submit Post" />
           </form>
             </>

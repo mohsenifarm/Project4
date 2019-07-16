@@ -37,15 +37,16 @@ class App extends Component {
     return (
       <div className="App">
     
-        <nav className="nav">
+
           <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
-        </nav>
+
         
         {this.state.user ? 
         <>
-          <h1 className="h1-app">HI {this.state.user.name}</h1>
-          <Link className='link-app' to={'/find'}>Find</Link>||
-          <Link className='link-app' to={'/lost'}>Lost</Link>
+          <h1 className="h1-app"><em>Hello:</em>&nbsp; <span className={`span-app`}>{this.state.user.name}</span></h1>
+          <Link className='link-app' to={'/find'}><i class="fas fa-paperclip"></i>Find</Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-question-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Link className='link-app' to={'/lost'}>Lost<i class="fas fa-search"></i></Link>
         </>  
         :
         <>
@@ -56,7 +57,7 @@ class App extends Component {
         <p className="p-app">
         This web-site help you to find your item...
         <br/>
-        If you find any items click find...
+        If you found any items click find...
         <br/>
         If you lost any items any try to find it click Lost...
         </p>

@@ -1,0 +1,20 @@
+.div-show{
+    border: 3.3px inset gray;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(192,192,192)
+}
+.edit-btn {
+    margin-right: 20px;
+}
+.first-a {
+    margin-right: 10px;
+}
+ul {
+    list-style-type:none;
+    align-items: left;
+    justify-content: left;
+}
+.h2-showpage{
+    border: 2px solid gray;
+}

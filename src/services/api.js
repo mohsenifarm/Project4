@@ -9,7 +9,8 @@ export function createPost(post){
         method: 'POST',
         body: JSON.stringify({
           title: post.title,
-          content: post.content
+          content: post.content,
+          zipcode: post.zipcode
         }),
         headers: {
           'content-type': 'application/json'
@@ -44,7 +45,20 @@ export function editPost(post) {
     method: 'PUT',
     body: JSON.stringify({
       title: post.title,
-      content: post.content
+      content: post.content,
+      zipcode: post.zipcode
+    }),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+}
+
+export function addComment(id,comment){
+  return fetch(`/api/posts/${id}/comments`,{
+    method: 'POST',
+    body: JSON.stringify({
+      body: comment
     }),
     headers: {
       'content-type': 'application/json'

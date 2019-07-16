@@ -13,10 +13,6 @@ class LostIndex extends Component{
         }
     }
     async componentDidMount() {
-        // var self = this;
-        // getAll().then(function(json) {
-        //     self.setState({posts:json})
-        // })
         var posts = [];
         posts = await getAll();
         this.setState({posts});
@@ -24,18 +20,15 @@ class LostIndex extends Component{
     }
 
     render(){
-        console.log(this.state.posts);
-   
-        // console.log(posts)
         return (
             this.state.posts ? 
                 <div>
                  <h1>All Lost</h1>
-                 <ul>
+                 <ul className={`ul-index-items`}>
                      {this.state.posts.map(
                         (post, idx) =>
-                         <li key={idx}> 
-                           <Link to={`/posts/${post._id}`}>{post.title}</Link>
+                         <li key={idx} className={`li-index-items`}> 
+                           <Link className={`link-indexlost`} to={`/posts/${post._id}`}>{post.title}</Link>
                          </li> 
                     )}
            

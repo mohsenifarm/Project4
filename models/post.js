@@ -1,14 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PhotosSchema = new Schema({
-    photo: String
+const CommentSchema = new Schema({
+  body: String
+})
+const PostSchema = new Schema({
+  title: String,
+  content: String,
+  zipcode: Number,
+  comments: [CommentSchema]
 });
-
-const PostSchema = new Schema ({
-    title: String,
-    photos:[PhotosSchema],
-    content: String,
-    comments:[{comment:String}]
-});
-module.exports = mongoose.model('Post',PostSchema)
+module.exports = mongoose.model("Post", PostSchema);

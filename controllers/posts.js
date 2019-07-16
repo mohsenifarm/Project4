@@ -5,7 +5,8 @@ module.exports = {
     createPost,
     showPost,
     deletePost,
-    editPost
+    editPost,
+    addComment
 
 }
 
@@ -44,3 +45,16 @@ function editPost(req,res){
         res.status(200).json(post)
     })
 }
+
+function addComment(req, res){
+    Post.findById(req.params.id).then(function(post){
+        post.comments.push(req.body);
+        console.log('==========',req.body)
+        post.save(function(comment){
+            res.status(200).json(comment);
+        });
+    })
+}
+
+
+
