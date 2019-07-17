@@ -1,6 +1,6 @@
 # Found & Lost
 Found and Lost Items
-### Les's see [Found-Lost](https://found-lost.herokuapp.com/)
+### Lets's see  [Found-Lost](https://found-lost.herokuapp.com/)
 
 ![Screen Shot 2019-07-16 at 5.00.23 PM](https://i.imgur.com/LaR7Atr.png)
 ![Screen Shot 2019-07-16 at 5.05.23 PM](https://i.imgur.com/ScRtG4R.png)
